@@ -14,7 +14,9 @@ f = []                                                              # списо
 try:
     with open("prikol.txt", "r") as file:                           # открываем файл
         buffer = file.read(buffer_len)
-
+        if not buffer:
+            print("файл пустой")
+            
         while buffer:                                               # пока в файле что-то есть
             while (buffer < '0' or buffer > '9') and buffer:        # пока это цифра
                 buffer = file.read(buffer_len)
