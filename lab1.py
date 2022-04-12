@@ -1,8 +1,3 @@
-""""Вариант 1.
-Написать программу, которая читая последовательность цифр из файла, вводит на экран четные цифры, стоящие на нечетных местах,
- повторяя каждую цифру так, чтобы число повторов равнялось номеру позиции цифры.
-"""
-
 import time
 
 start = time.time()                                                 # начинаем отсчет
@@ -16,14 +11,14 @@ try:
         buffer = file.read(buffer_len)
         if not buffer:
             print("файл пустой")
-            
+
         while buffer:                                               # пока в файле что-то есть
             while (buffer < '0' or buffer > '9') and buffer:        # пока это цифра
                 buffer = file.read(buffer_len)
 
             while (buffer >= '0' and buffer <= '9') and buffer:     # обработка чисел
                 position += 1
-                if int(buffer) % 2 == 0:
+                if int(buffer) % 2 == 0 and int(position) % 2 != 0:
                     for i in range(position):
                         f.append(int(buffer))
                     print(f)
